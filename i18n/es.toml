@@ -1,0 +1,20 @@
+[about]
+other = "Acerca de"
+
+[contact]
+other = "Contacto"
+
+[tags]
+other = "Tags"
+
+[search]
+other = "Buscar"
+
+[written]
+other = "Escrito por"
+
+[newer]
+other = "Anterior"
+
+[older]
+other = "Siguiente"

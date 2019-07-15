@@ -1,7 +1,7 @@
-name = "pixyll"
-description = "A simple, beautiful theme for Hugo."
-author = "Dmitriy Slupytskyi"
+name = "pixyll-minimal"
+description = "A simple, minimalist theme for Hugo. Heavily based on Pixyll"
+author = "Javier Pulido"
 license = "MIT"
-source_repo = "https://github.com/azmelanar/hugo-theme-pixyll"
-tags = ["blog", "personal", "search", "responsive", "minimal"]
+source_repo = "https://github.com/pulimento/hugo-theme-pixyll-minimal"
+tags = ["blog", "personal", "responsive", "minimal"]
 min_version = 0.25
