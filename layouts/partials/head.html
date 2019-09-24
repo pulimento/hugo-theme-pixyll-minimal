@@ -8,9 +8,11 @@
   <meta name="description" content="A personal blog">
   <meta name="author" content="Javi Pulido">
   <meta name="keywords" content="Javi Pulido, pulimento, webodepava, blog, personal">
+  <meta name="theme-color" content="{{ .Site.Params.faviconThemeColor }}">
   <link rel="canonical" href="{{ .Permalink }}">
+
+  {{ hugo.Generator }}
 
   <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}/css/combined-min.css">
 
 </head>
-<body class="">

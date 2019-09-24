@@ -1,28 +1,26 @@
-{{ partial "head.html" . }}
-<div class="site-wrap">
-  {{ partial "header.html" . }}
-  <div class="post p2 p-responsive wrap" role="main">
-    <div class="measure">
-      <div class="post-header mb2">
-        <h1 class="py2">{{ .Title }}</h1>
-        <span class="post-meta">{{ .Date.Format "Jan 2, 2006" }}</span><br>
-        <!--<span class="post-meta">{{ .Date.Format "Jan 2, 2006" }} by {{ .Params.author }}</span><br>-->
-        {{ $baseurl := .Site.BaseURL }}
-      </div>
+{{- define "main" -}}
 
-      <article class="post-content">
-      {{ .Content }}
-      </article>
+<div class="post px2 px-responsive wrap" role="main">
+<div class="measure">
 
-      <p class="post-meta">{{ i18n "tags" }}:&nbsp;
-        {{ range $i, $e := .Params.tags }}
-            {{if $i}},&nbsp;{{end}}
-            <a href="{{ $baseurl }}{{ $.Site.LanguagePrefix }}/tags/{{ . }}">{{ . }}</a>
-        {{ end }}
-      </p>
-
-      {{ partial "comments.html" . }}
-    </div>
-  </div>
+<div class="post-header mb2">
+<h1>{{ .Title | markdownify }}</h1>
 </div>
-{{ partial "footer.html" . }}
+
+<p>
+  <small class="post-meta">
+  {{ $customDateFormat := "January 2, 2006" }}
+  {{ with .Site.Params.customDateFormat }}{{ $customDateFormat = . }}{{ end }}
+  {{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, updated {{ .Lastmod.Format $customDateFormat }}{{ end }}
+  </small>
+  {{ partial "tags" . }}
+</p>
+
+<article class="post-content">
+{{ .Content }}
+</article>
+
+</div>
+</div>
+
+{{- end -}}

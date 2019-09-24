@@ -1,34 +1,33 @@
-{{ partial "head.html" . }}
-<div class="site-wrap">
-    {{ partial "header.html" . }}
-    {{ if isset .Site.Params "description" }}
-    <meta name="description" content="{{ .Site.Params.description }}">
-    {{ end }}
-    <div class="post p2 p-responsive wrap" role="main">
-        <div class="measure">
-            <div class="home">
-                <div class="posts">
-                    {{ if isset .Site.Params "paginate" }}
-                        {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
-                        {{ range $paginator.Pages.ByDate.Reverse }}
-                            {{ .Render "summary" }}
+{{- define "main" -}}
+
+{{ $homepage := "Home" }}
+{{ with .Site.Menus.nav }}
+  {{ range first 1 . }}
+    {{ $homepage = .Name }}
+  {{ end }}
+{{ end }}
+
+<div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+        <div class="home">
+            <div class="posts">
+                    {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+                    {{ range $pages.ByPublishDate.Reverse }}
+                      <p>
+                        <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+                        {{ $customDateFormat := "January 2, 2006" }}
+                        {{ with .Site.Params.customDateFormat }}{{ $customDateFormat = . }}{{ end }}
+                        <br>
+                        <small class="text-secondary">{{ .PublishDate.Format $customDateFormat }}</small>
+                        {{ partial "tags" . }}
+                        {{ if eq .Site.Params.showPostSummary true }}
+                        <br>
+                        {{ .Summary }}
                         {{ end }}
-                </div>
-            </div>
-            <div class="paginatin_area">
-                        {{ partial "pagination.html" . }}
-                <!--            {{ template "_internal/pagination.html" . }} -->
-            </div>
-                    {{ else }}
-                        {{ range first 5 .Data.Pages.ByDate.Reverse }}
-                            {{ if eq .Type "post" }}
-                                {{ .Render "summary"}}
-                            {{ end }}
-                        {{ end }}
+                      </p>
                     {{ end }}
-                </div>
             </div>
         </div>
-    </div>
 </div>
-{{ partial "footer.html" . }}
+
+{{- end -}}
