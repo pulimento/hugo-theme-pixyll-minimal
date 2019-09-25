@@ -1,0 +1,14 @@
+{{- define "main" -}}
+
+<div class="post p2 px-responsive wrap" role="main">
+    <div class="measure">
+        <p>Tag: {{ .Title | lower }}</p>
+        <ul>
+            {{ range .Data.Pages.ByDate.Reverse }}
+                <li><a href="{{ .Permalink}}"> {{ .LinkTitle }} </a></li>
+            {{ end }}
+        </ul>
+    </div>
+</div>
+
+{{- end -}}
