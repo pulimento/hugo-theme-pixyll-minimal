@@ -17,10 +17,6 @@ body {
   font-family: "Ubuntu", "PT Serif", Georgia, "Times New Roman", serif;
 }
 
-html, body {
-  height: 100%;
-}
-
 img {
   width: auto;
   max-width: 100%;
@@ -293,7 +289,7 @@ h6,
   .post-meta {
     margin: 0;
     padding: 0;
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 
   .h1,

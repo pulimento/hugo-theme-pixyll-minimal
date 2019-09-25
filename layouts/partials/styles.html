@@ -1,0 +1,6 @@
+{{ $mainCss := resources.Get "css/main.css" }}
+{{ $bassCss := resources.Get "css/basscss.css" }}
+
+{{ $cssStyle := slice $mainCss $bassCss | resources.Concat "css/bundle.css" | minify }}
+
+<link rel="stylesheet" type="text/css" href="{{ $cssStyle.Permalink }}">

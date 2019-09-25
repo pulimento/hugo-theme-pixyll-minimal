@@ -13,6 +13,6 @@
 
   {{ hugo.Generator }}
 
-  <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}/css/combined-min.css">
+  {{- partial "styles.html" . -}}
 
 </head>
