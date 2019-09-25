@@ -1,0 +1,7 @@
+<style>
+.video-responsive{overflow:hidden;padding-bottom:56.25%;/* default 16:9 aspect ratio */position:relative;height:0;max-width:100%;margin-top:1em;margin-bottom:1em}
+.video-responsive iframe{left:0;top:0;height:100%;width:100%;position:absolute;}
+</style>
+<div class="video-responsive" {{ if .Get 1 }} style="padding-bottom: {{ .Get 1 }}" {{ end }} >
+<iframe src="https://player.vimeo.com/video/{{ .Get 0 }}" frameborder="0" allowfullscreen></iframe>
+</div>
