@@ -11,23 +11,28 @@
     <div class="measure">
         <div class="home">
             <div class="posts">
-                    {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-                    {{ range $pages.ByPublishDate.Reverse }}
-                      <p>
-                        <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-                        {{ $customDateFormat := "January 2, 2006" }}
-                        {{ with .Site.Params.customDateFormat }}{{ $customDateFormat = . }}{{ end }}
-                        <br>
-                        <small class="text-secondary">{{ .PublishDate.Format $customDateFormat }}</small>
-                        {{ partial "tags" . }}
-                        {{ if eq .Site.Params.showPostSummary true }}
-                        <br>
-                        {{ .Summary }}
-                        {{ end }}
-                      </p>
-                    {{ end }}
+              {{ if isset .Site.Params "paginate" }}
+                {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) .Site.Params.paginate }}
+                {{ range $paginator.Pages.ByDate.Reverse }}
+
+                  {{ partial "postlistitem" . }}
+
+                {{ end }}
+                      
+              </div>
             </div>
+
+            {{ partial "paginator" . }}
+
+            {{ else }}
+                {{ range first 10 .Site.RegularPages.ByDate.Reverse }}
+
+                  {{ partial "postlistitem" . }}
+
+                {{ end }}
+            {{ end }}
         </div>
+    </div>
 </div>
 
 {{- end -}}
