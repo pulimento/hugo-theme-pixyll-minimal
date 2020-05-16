@@ -18,3 +18,6 @@ other = "Newer"
 
 [older]
 other = "Older"
+
+[photos]
+other = "Photos"

@@ -5,11 +5,8 @@
 <a href="https://twitter.com/{{ .Site.Params.twitter_username }}">Twitter</a>
 {{ end }}
 
-<!--
-<a class="fa fa-rss rss" href="/index.xml">RSS</a>
--->
+<a href="{{ .Site.BaseURL }}{{ .Site.LanguagePrefix }}/photos/">{{ i18n "photos" }}</a>
 
-<!-- <a href="{{ .Site.BaseURL }}{{ .Site.LanguagePrefix }}/contact/">{{ i18n "contact" }}</a> -->
 {{- if .Site.IsMultiLingual -}}
 {{- range $lang := .Site.Languages -}}
 {{- if ne $.Site.Language $lang -}}

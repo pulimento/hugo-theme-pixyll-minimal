@@ -1,7 +1,11 @@
 # Pixyll
 
-Pixyll is a simple, beautiful theme for [Hugo](http://gohugo.io/).
+Pixyll Minimal is a simple, beautiful theme for [Hugo](http://gohugo.io/).
 Based on [Pixyll for Jekyll](https://github.com/johnotander/pixyll)
+
+## Photo gallery
+
+Implementation from [Hugo Easy Gallery](https://github.com/liwenyip/hugo-easy-gallery), as of 14/May/20
 
 ## Features
 
