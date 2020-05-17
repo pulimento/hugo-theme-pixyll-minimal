@@ -1,0 +1,49 @@
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .grid > img {
+    max-height: 100px;
+    opacity: 0;
+  }    
+  .grid img {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }    
+  .grid::after {
+    content: '';
+    flex-grow: 999999999;
+  }    
+  .grid > figure {
+    margin: 4px;
+    background-color: white;
+    position: relative;
+    transition: all 1s ease-in-out;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: scale(1);
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    z-index: 0;
+    border:0px solid black;
+  }
+  .grid > figure.loaded {
+    transform: scale(1);
+  }
+  .grid > figure.loaded img {
+    opacity: 0.99999;
+  }
+  .grid > figure.loaded:hover {
+    transform: scale(1.05);
+    z-index: 5;
+  }    
+  .grid > figure > i {
+    display: block;
+  }    
+  .grid > figure > img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: auto;
+  }

@@ -1,0 +1,8 @@
+{{ $photosCss := resources.Get "css/photos.css" | minify }}
+
+<!-- <link rel="stylesheet" type="text/css" href="{{ $photosCss.Permalink }}"> -->
+
+<!-- inline css!!! -->
+<style>
+{{ $photosCss.Content | safeCSS }}
+</style>
