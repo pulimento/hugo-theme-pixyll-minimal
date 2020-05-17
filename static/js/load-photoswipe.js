@@ -7,9 +7,25 @@ Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
 if (window.loadphotoswipejs) {
 	window.alert("You've loaded load-photoswipe.js twice. See https://github.com/liwenyip/hugo-easy-gallery/issues/6")
 } 
-var loadphotoswipejs = 1
+var loadphotoswipejs = 1;
 
 /* TODO: Make the share function work */
+/* TODO remove jQuery dependency (remove it from photos/list.html) */
+/* TODO differentiate between thumbnails and full image */
+
+/*
+JQUERY REMOVAL WIP
+if (document.readyState != 'loading') {
+	OnDocumentReady();
+} else {
+	document.addEventListener('DOMContentLoaded', OnDocumentReady);
+}
+
+
+function OnDocumentReady() {
+*/
+
+
 $( document ).ready(function() {
 	/*
 	Initialise Photoswipe
