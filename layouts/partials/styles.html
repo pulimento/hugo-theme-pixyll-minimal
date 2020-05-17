@@ -3,4 +3,9 @@
 
 {{ $cssStyle := slice $mainCss $bassCss | resources.Concat "css/bundle.css" | minify }}
 
-<link rel="stylesheet" type="text/css" href="{{ $cssStyle.Permalink }}">
+<!-- <link rel="stylesheet" type="text/css" href="{{ $cssStyle.Permalink }}"> -->
+
+<!-- inline css!!! -->
+<style>{{ $cssStyle.Content | safeCSS }}</style>
+
+
